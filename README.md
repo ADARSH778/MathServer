@@ -1,5 +1,5 @@
 # Ex.05 Design a Website for Server Side Processing
-## Date:05-04-2024
+## Date:08-04-2024
 
 ## AIM:
 To design a website to find surface area of a Right Cylinder in server side.
@@ -32,11 +32,12 @@ Publish the website in the given URL.
 ## PROGRAM :
 ```
 arise.html
+
 <html>
 <head>
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-<title>Surface Area of cylinder</title>
+<title>Surface Area of Cylinder</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <style type="text/css">
 body 
@@ -75,7 +76,7 @@ padding-top: 20px;
 <body>
 <div class="edge">
 <div class="box">
-R Adarsh Chowdary (212223040166)
+Adarsh Chowdary R (212223040166)
 <h1>Surface Area of cylinder</h1>
 <form method="POST">
 {% csrf_token %}
@@ -96,46 +97,11 @@ Area : <input type="text" name="area" value="{{area}}"></input>m<sup>2</sup><br/
 </div>
 </body>
 </html>
-
-
-views.py
-
-from django.shortcuts import render
-def surfacearea(request):
-    context={}
-    context['area'] = "0"
-    context['r'] = "0"
-    context['h'] = "0"
-    if request.method == 'POST':
-        print("POST method is used")
-        r = request.POST.get('radius','0')
-        h = request.POST.get('height','0')
-        print('request=',request)
-        print('radius=',r)
-        print('height=',h)
-        area = 2 * 3.14 * int(r) * int(h) + 2 * 3.14 * int(r) * int(r)
-        context['area'] = area
-        context['r'] = r
-        context['h'] = h
-        print('Area=',area)
-    return render(request,'mathapp/arise.html',context)
-
-
-urls.py
-
-from django.contrib import admin
-from django.urls import path
-from mathapp import views
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('surfaceareaofcylinder/',views.surfacearea,name="surfaceareaofcylinder"),
-    path('',views.surfacearea,name="surfaceareaofcylinderroot")
-]
 ```
 ## SERVER SIDE PROCESSING:
-![alt text](<Screenshot (39).png>)
+![alt text](<Screenshot (42).png>)
 
 ## HOMEPAGE:
-![alt text](<Screenshot (38).png>)
+![alt text](<Screenshot (41).png>)
 ## RESULT:
 The program for performing server side processing is completed successfully.
